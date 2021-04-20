@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  database:
+    image: postgres:latest
+    env_file: database.conf
+    ports:
+      - 5432:5432
+    volumes:
+      - db_volume:/var/lib/postgresql
+    networks:
+      - internal-network
+
+networks:
+  internal-network:
+
+volumes:
+  db_volume:
